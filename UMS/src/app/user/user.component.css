@@ -10,8 +10,14 @@ button {
     border: 1px solid #222;
     width: 80px;
 }
+
 button.delete {
-    background: white;
-    color: red;
+    background: red;
+    color: white;
+}
+
+button.update {
+    color: #fff;
+    background: green;
 }
 
