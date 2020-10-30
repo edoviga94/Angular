@@ -1,4 +1,9 @@
+import { registerLocaleData } from '@angular/common';
 import { Component } from '@angular/core';
+import localeIt from '@angular/common/locales/it';
+
+
+registerLocaleData(localeIt);
 
 @Component({
   selector: 'app-root',
@@ -6,5 +11,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-pipes';
+  title = 'angular pipes';
+  birthDate = new Date();
 }
