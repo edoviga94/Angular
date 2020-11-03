@@ -10,12 +10,14 @@ import { FormsModule } from '@angular/forms';
 import { NavComponent } from './nav/nav.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {RouterModule, Routes} from '@angular/router';
+import { UserDataComponent } from './user-data/user-data.component';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 
 const routes: Routes = [
   {
     path: 'users',
-    component: UserComponent
+    component: UsersComponent
   },
   {
     path: '',
@@ -29,6 +31,10 @@ const routes: Routes = [
   {
     path: 'users/:id/edit',
     component: UserDetailComponent
+  },
+  {
+    path: 'users/:id',
+    component: UserDataComponent
   }
 ];
 
@@ -39,13 +45,15 @@ const routes: Routes = [
     UsersComponent,
     UserComponent,
     UserDetailComponent,
-    NavComponent
+    NavComponent,
+    UserDataComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     NgbModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FontAwesomeModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

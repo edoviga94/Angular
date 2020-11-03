@@ -51,6 +51,11 @@ export class UserService {
         return this.users;
     }
 
+  // tslint:disable-next-line:typedef
+    getUser(id: number) {
+      return this.users.find(user => user.id === id);
+    }
+
     deleteUser(user) {
 
         const index = this.users.indexOf(user);
@@ -61,15 +66,13 @@ export class UserService {
 
     updateUser(user: UserInterface) {
         const idx = this.users.findIndex((v) => v.id === user.id);
-
-        alert(idx);
         if(idx !== -1) {
             this.users[idx] = user;
         }
     }
 
     createUser(user: UserInterface) {
-
+        user.id = this.users.length + 1;
         this.users.splice(0, 0, user);
     }
 }

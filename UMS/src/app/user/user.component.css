@@ -1,7 +1,10 @@
-.buttons div {
-    padding: 0;
+.buttons {
+  width: 200px;
+  text-align: center;
 }
 
-.buttons  {
-    width: 60px;
+.buttons button {
+  padding: 1px;
+  width: 35px;
+
 }

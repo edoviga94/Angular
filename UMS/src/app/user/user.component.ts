@@ -1,6 +1,7 @@
 import { UserService } from '../services/user.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { User } from '../classes/User';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'tr[app-user]',
@@ -12,8 +13,8 @@ export class UserComponent implements OnInit {
   @Input('user-data') user: User;
   @Output('onDeleteUser') userDeleted = new EventEmitter();
   @Output() onSelectUser = new EventEmitter();
-  
-  constructor(private userService: UserService) { }
+
+  constructor(private userService: UserService, private route: Router) { }
 
   ngOnInit(): void {
   }
@@ -21,12 +22,17 @@ export class UserComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   deleteUser() {
-    //this.userService.deleteuser(this.user)
     this.userDeleted.emit(this.user);
   }
 
   updateUser() {
+    
+    this.route.navigate(['users', this.user.id, 'edit']);
     this.onSelectUser.emit(this.user);
+  }
+
+  showUserDetail() {
+    this.route.navigate(['users', this.user.id]);
   }
 
 }
